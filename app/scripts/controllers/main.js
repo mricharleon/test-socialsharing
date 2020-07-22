@@ -12,10 +12,10 @@ angular.module('socialsharingApp')
 
 function MainCtrl(sharing) {
 
-  let ctrlVm = this;
+  var ctrlVm = this;
   ctrlVm.llamarTwitter = llamarTwitter;
 
-  let mockData = {
+  var mockData = {
     'provider': 'twitter',
     'attrs': {
       'socialshareUrl': 'https://www.isyplus.com/ventas/#!/detalle_articulo/4323',

@@ -1,13 +1,5 @@
 'use strict';
 
-/**
- * @ngdoc overview
- * @name socialsharingApp
- * @description
- * # socialsharingApp
- *
- * Main module of the application.
- */
 angular
   .module('socialsharingApp', [
     'ngAnimate',
@@ -18,9 +10,11 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    '720kb.socialshare'
+    '720kb.socialshare',
+    // 'server',
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $locationProvider) {
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -35,4 +29,9 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+
+    // enable html5Mode for pushstate ('#'-less URLs)
+    $locationProvider.html5Mode(true);
+    $locationProvider.hashPrefix('!');
+
   });
