@@ -32,7 +32,6 @@ module.exports = function(config) {
       'bower_components/angular-sanitize/angular-sanitize.js',
       'bower_components/angular-touch/angular-touch.js',
       'bower_components/angular-socialshare/dist/angular-socialshare.min.js',
-      'bower_components/ngMeta/dist/ngMeta.js',
       'bower_components/angular.js-server/dist/angular.js-server.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower

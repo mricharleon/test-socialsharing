@@ -11,8 +11,16 @@ angular
     'ngSanitize',
     'ngTouch',
     '720kb.socialshare',
-    // 'server',
+    'server',
   ])
+  .constant(
+    'serverConfig', {
+      'clientTimeoutValue': 200,
+      'debug': true,
+      'httpCache': true,
+      'restCache': true,
+      'restServerURL': null
+  })
   .config(function ($routeProvider, $locationProvider) {
 
     $routeProvider
