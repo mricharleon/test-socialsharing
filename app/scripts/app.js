@@ -13,12 +13,12 @@ angular
     '720kb.socialshare',
     'server',
   ])
-  .constant(
+  .value(
     'serverConfig', {
       'clientTimeoutValue': 200,
       'debug': true,
-      'httpCache': true,
-      'restCache': true,
+      'httpCache': false,
+      'restCache': false,
       'restServerURL': null
   })
   .config(function ($routeProvider, $locationProvider) {
@@ -39,7 +39,7 @@ angular
       });
 
     // enable html5Mode for pushstate ('#'-less URLs)
-    $locationProvider.html5Mode(true);
-    $locationProvider.hashPrefix('!');
+    $locationProvider.html5Mode(false);
+    // $locationProvider.hashPrefix('!');
 
   });
