@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <title></title>
-  <!-- <base href="/socialsharing/" /> -->
-  <base href="/" />
+  <base href="/socialsharing/" />
+  <!-- <base href="/" /> -->
   <meta name="Description" content="Esto es una descripción del sitio para testear en facebook.">
 
   <meta property="og:url"  content="https://190.95.220.35/socialsharing" />
@@ -21,11 +21,10 @@
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
   <!-- endbower -->
   <!-- endbuild -->
+
   <!-- build:css(.tmp) styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
-
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
   <!-- endbuild -->
 </head>
 
@@ -87,6 +86,48 @@
     ga('send', 'pageview');
   </script>
 
+  <!-- Load Facebook SDK for JavaScript -->
+  <script>
+
+    window.fbAsyncInit = function() {
+      FB.init({
+            appId      : '297551404777677',
+            cookie     : true,
+            xfbml      : true,
+            version    : 'v7.0'
+      });
+      FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) {return;}
+          js = d.createElement(s); js.id = id;
+          js.src = "https://connect.facebook.net/en_US/sdk.js";
+          fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    function checkLoginState() {
+
+      FB.getLoginStatus(function(response) {
+
+        console.log('Verificando el estado de login en esta app');
+        console.log(response);
+        if (response.status === 'connected') {
+          console.log('Bienvenid@!  Obteniendo tu información.... ');
+          FB.api('/me', function (response) {
+                console.log('Login exitoso para: ' + response.name);
+              document.getElementById('status').innerHTML = 'Gracias por loguearte como, ' + response.name + '!';
+          });
+        } else {
+          document.getElementById('status').innerHTML = 'Por favor, logueate ' + 'en esta app.';
+        }
+      });
+    }
+
+  </script>
+
+
   <!-- build:js(.) scripts/vendor.js -->
   <!-- bower:js -->
   <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -111,6 +152,7 @@
   <script src="scripts/controllers/main.js"></script>
   <script src="scripts/controllers/about.js"></script>
   <script src="scripts/services/sharing.js"></script>
+
   <!-- endbuild -->
 </body>
 

@@ -20,7 +20,7 @@ function sharing(Socialshare) {
   return service;
 
   function shareService(data) {
-console.log('hola llego al servicio');
+    console.log('hola llego al servicio');
     Socialshare.share(data);
 
   }

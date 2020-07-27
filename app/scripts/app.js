@@ -11,7 +11,6 @@ angular
     'ngSanitize',
     'ngTouch',
     '720kb.socialshare',
-    'server',
   ])
   .value(
     'serverConfig', {
@@ -19,7 +18,7 @@ angular
       'debug': true,
       'httpCache': false,
       'restCache': false,
-      'restServerURL': null
+      'restServerURL': ''
   })
   .config(function ($routeProvider, $locationProvider) {
 
@@ -39,7 +38,7 @@ angular
       });
 
     // enable html5Mode for pushstate ('#'-less URLs)
-    $locationProvider.html5Mode(false);
+    $locationProvider.html5Mode(true);
     // $locationProvider.hashPrefix('!');
 
   });
